@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farhan - JavaScript Day 1</title>
+</head>
+<body>
+
+    <h1>Farhan ka JavaScript - Day 1</h1>
+    <p id="message">Yeh message JavaScript se change hoga.</p>
+    <button id="myButton">Click Karo!</button>
+
+    <script>
+        // ==========================================
+        // FARHAN - DAY 1 (FIXED)
+        // ==========================================
+
+        // ---- VARIABLES ----
+        var oldname = "farhan";
+        console.log("old js (var): " + oldname);
+
+        let newName = "Farhan";
+        console.log("new js (let): " + newName);
+
+        const myage = 24;
+        console.log("New js (const) : " + myage);
+
+        let city = "indore";
+        console.log("pehle city : " + city);
+
+        city = "mumbai";
+        console.log("baad mai city : " + city);
+
+        const country = "India";
+        console.log("mare desh: " + country);
+
+        // ---- DATA TYPES ----
+        let myname = "farhan";
+        console.log("string : " + myname);
+
+        let mynumber = 34;
+        console.log("number :" + mynumber);
+
+        let isstudent = true;
+        console.log("boolean: " + isstudent);
+
+        let empty;
+        console.log("undefined : " + empty);
+
+        let nothing = null;
+        console.log("null: " + nothing);
+
+        // ---- TYPEOF (Sahi variable names use karo) ----
+        console.log("typeof myname: " + typeof myname);        // "string"
+        console.log("typeof mynumber: " + typeof mynumber);    // "number"
+        console.log("typeof isstudent: " + typeof isstudent);  // "boolean"
+        console.log("typeof empty: " + typeof empty);          // "undefined"
+        console.log("typeof nothing: " + typeof nothing);      // "object"
+
+        // ---- TEMPLATE LITERALS (Sahi variable names) ----
+        let oldString = "Mera naam " + myname + " hai aur meri umar " + myage + " saal hai.";
+        console.log("Old style: " + oldString);
+
+        let newString = `Mera naam ${myname} hai aur meri umar ${myage} saal hai.`;
+        console.log("New style: " + newString);
+
+        // ---- BUTTON CLICK EVENT ----
+        const changemessage = () => {
+            let newmessage = "Farhan ne button click kiya! 🎉";
+            document.getElementById("message").innerHTML = newmessage;
+        };
+
+        document.getElementById("myButton").addEventListener("click", changemessage);
+
+        console.log("✅ Day 1 complete!");
+
+    </script>
+
+</body>
+</html>
