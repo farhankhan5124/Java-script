@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farhan - JavaScript Day 3</title>
+</head>
+<body>
+
+    <h1>Farhan ka JavaScript - Day 3</h1>
+    <p id="output">Yahan result dikhega.</p>
+    <button id="runBtn">Run Karo!</button>
+
+    <script>
+         console.log("===== TYPE CONVERSION =====");
+
+        // ---- STRING → NUMBER ----
+        let strNumber = "10";
+        let numNumber = Number(strNumber);  // "10" → 10
+        console.log(`"10" → Number: ${numNumber}, Type: ${typeof numNumber}`);
+
+
+        // NUMBER STRING
+        let num = 25;
+        let str = String(num);
+
+        console.log(`25 -> string: "${str}", Type; ${typeof str}`);
+
+         // ---- SHORTCUT: + se String → Number --
+
+         let shortcutNum = +"50";
+         console.log(`+"50" -> ${shortcutNum}, type: ${typeof shortcutNum}`);
+
+          // ---- SHORTCUT: "" se Number → String ----
+
+        let shortcutStr = 100 + "";  // 100 → "100"
+        console.log(`100 + "" → "${shortcutStr}", Type: ${typeof shortcutStr}`)
+
+        // ---- parseInt() ----
+        let parseResult = parseInt("25.99");  // "25.99" → 25
+        console.log(`parseInt("25.99") → ${parseResult}`);
+
+         // ---- parseFloat() ----
+        let floatResult = parseFloat("25.99");
+        console.log(`parseFloat("25.99") -> ${floatResult}`);
+
+        console.log("===== CONDITIONS =====");
+
+        let age = 18;
+
+        if (age => 18) {
+            console.log("Aap vote kar sactha ho")
+        }
+
+        let age2 = 16;
+        if (age2 >= 18) {
+            console.log("app vote kar sactha ho ");
+        } else {
+            console.log("aap vote nahi kar sakte (age 18 se kam hai .)");
+        }
+
+        // ---- IF + ELSE IF + ELSE ---
+
+        let marks = 75;
+
+        if (marks >= 90) {
+            console.log("grade: A+ (outstanding)");
+        } else if (marks >= 75) {
+            console.log("grade; A (Excellent)");
+        } else if (marks >= 60) {
+            console.log("grade; B (good)");
+        } else if (marks >= 45) {
+            console.log("grade; c (Average)");
+        } else {
+            console.log("Grade: f (fall)");
+        }
+
+        let userName = "farhan";
+        let password = "123456";
+
+        if (userName === "farhan" && password === "123456") {
+            console.log("login succesfull welcome farhan");
+        } else if (userName = "farhan" && password !== "123456") {
+            console.log("wrong password! try again.");
+        } else {
+            console.log ("user not found! please register");
+        }
+
+        // 3. SWITCH STATEMENT (Multiple conditions shortcut)
+
+        console.log("===== SWITCH STATEMENT =====");
+
+        let day = 3;
+
+        switch (day) {
+            case 1: 
+                console.log("MONDAY - chalo kaam karte hain!");
+                break;
+            case 2: 
+                console.log("tuesday - keep going");
+                break;
+            case 3: 
+                console.log("Wednesday - Halfway there");
+                break;
+            case 4:
+                console.log("thusday - Almost there");
+                break;
+            case 5:
+                console.log("friday - weekend aane wala hai ");
+                break;
+            case 6:
+                console.log("satarday - chill time!")
+                break;
+            case 7:
+                console.log("sunday - family time!")
+                break;
+            default:
+                console.log("Invalid day! please enter 1-7.")
+
+        }
+
+        const showOutput = () => {
+            let result = `
+                ✅ Type Conversion + Conditions<br><br>
+                <strong>Type Conversion:</strong><br>
+                "10" → Number: ${numNumber}<br>
+                25 → String: "${str}"<br><br>
+                <strong>Conditions:</strong><br>
+                Age 18 → Vote karo? ${age >= 18 ? "✅ Yes" : "❌ No"}<br>
+                Age 16 → Vote karo? ${age2 >= 18 ? "✅ Yes" : "❌ No"}<br><br>
+                <strong>Grade:</strong><br>
+                Marks: ${marks}<br>
+                ${marks >= 90 ? "Grade A+" : marks >= 75 ? "Grade A" : marks >= 60 ? "Grade B" : marks >= 45 ? "Grade C" : "Grade F"}
+            `;
+            document.getElementById("output").innerHTML = result;
+        };
+        
+        document.getElementById("runBtn").addEventListener("click", showOutput);
+
+        console.log("✅ Day 3 complete!");
+
+
+
+
+
+
+
+
+
+
+    </script>
+
+</body>
+</html>

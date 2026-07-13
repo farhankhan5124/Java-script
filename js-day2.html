@@ -12,138 +12,121 @@
     <button id="runBtn">Operators Run Karo!</button>
 
     <script>
-        // ==========================================
-        // FARHAN - DAY 2 (Operators)
-        // Bilkul Detail Mein - Har Line Ka Matlab
-        // ==========================================
-
-        // ==========================================
-        // 1. ARITHMETIC OPERATORS (Maths)
-        // ==========================================
+        // arithmetic operators
 
         let a = 10;
         let b = 3;
 
-        let addition = a + b;        // 10 + 3 = 13
-        let subtraction = a - b;     // 10 - 3 = 7
-        let multiplication = a * b;  // 10 * 3 = 30
-        let division = a / b;        // 10 / 3 = 3.33
-        let modulus = a % b;         // 10 % 3 = 1 (remainder - shesh)
-        let power = a ** b;          // 10^3 = 1000
+        let addition = a + b;
+        let subtraction = a - b;
+        let multiplication = a * b;
+        let division = a / b;
+        let modulus = a % b;
+        let power = a ** b;
 
         console.log("===== ARITHMETIC OPERATORS =====");
-        console.log(`a = ${a}, b = ${b}`);
-        console.log(`Addition (a + b) = ${addition}`);
-        console.log(`Subtraction (a - b) = ${subtraction}`);
-        console.log(`Multiplication (a * b) = ${multiplication}`);
-        console.log(`Division (a / b) = ${division}`);
-        console.log(`Modulus (a % b) = ${modulus}`);  // Remainder
-        console.log(`Power (a ** b) = ${power}`);
+        console.log(` a = ${a}, b = ${b}`);
+        console.log(`addition (a + b ) = ${addition}`);
+        console.log(`subtration (a - b ) = ${subtraction}`);
+        console.log(`multiplication (a * b) = ${multiplication}`);
+        console.log(`division (a / b) = ${division}`);
+        console.log(`modulus (a % b ) = ${modulus}`);
+        console.log(`power (a ** b)  = ${power}`)
 
-        // ==========================================
-        // 2. ASSIGNMENT OPERATORS
-        // ==========================================
+
+        // assignment opertors 
 
         let x = 5;
-        console.log("===== ASSIGNMENT OPERATORS =====");
+        console.log("-----ASSIGNMENT OPERATORS-----")
         console.log(`x = ${x}`);
 
-        x += 3;  // x = x + 3  → 5 + 3 = 8
-        console.log(`x += 3 → ${x}`);
+        x += 3;
+        console.log(` x += 3 = ${x}`);
 
-        x -= 2;  // x = x - 2  → 8 - 2 = 6
-        console.log(`x -= 2 → ${x}`);
+        x -= 2;
+        console.log(` x -= 2 = ${x}`);
 
-        x *= 4;  // x = x * 4  → 6 * 4 = 24
-        console.log(`x *= 4 → ${x}`);
+        x *= 4;
+        console.log(` x *= 4 = ${x}`);
 
-        x /= 6;  // x = x / 6  → 24 / 6 = 4
-        console.log(`x /= 6 → ${x}`);
+        x /= 6;
+        console.log(` x /= 6 = ${x}`);
 
-        x %= 3;  // x = x % 3  → 4 % 3 = 1
-        console.log(`x %= 3 → ${x}`);
+        x %= 21;
+        console.log(` x %= 21 = ${x}`);
 
-        // ==========================================
-        // 3. COMPARISON OPERATORS
-        // ==========================================
+        //  comparison operators
 
         let p = 10;
         let q = 5;
         let r = "10";
 
-        console.log("===== COMPARISON OPERATORS =====");
-        console.log(`p = ${p}, q = ${q}, r = "${r}"`);
+        console.log("===== COMPARISION OPERATORS =====")
+        console.log(` p = &{p}, q = ${q}, r = "${r}"`);
 
-        console.log(`p > q → ${p > q}`);    // 10 > 5 → true
-        console.log(`p < q → ${p < q}`);    // 10 < 5 → false
-        console.log(`p >= q → ${p >= q}`);   // 10 >= 5 → true
-        console.log(`p <= q → ${p <= q}`);   // 10 <= 5 → false
 
-        // == (value check) vs === (value + type check)
-        console.log(`p == r → ${p == r}`);   // 10 == "10" → true (value same)
-        console.log(`p === r → ${p === r}`);  // 10 === "10" → false (type different)
+        console.log(`p > q  => ${p > q}`);
+        console.log(`p > q  => ${p < q}`);
+        console.log(`p >= q  => ${p >= q}`);
+        console.log(`p <= q  => ${p <= q}`);
 
-        console.log(`p != q → ${p != q}`);   // 10 != 5 → true
-        console.log(`p !== r → ${p !== r}`);  // 10 !== "10" → true (type different)
 
-        // ==========================================
-        // 4. LOGICAL OPERATORS (AND, OR, NOT)
-        // ==========================================
+        console.log(`p == r -> ${p == r}`);
+        console.log(`p === r -> ${p === r}`);
+
+        console.log(` p != q -> ${p != q}`);
+        console.log(` p !== q -> ${p !== q}`);
+
+        //  LOGICAL OPERATORS 
 
         let isStudent = true;
         let hasID = true;
         let isTeacher = false;
 
-        console.log("===== LOGICAL OPERATORS =====");
-        console.log(`isStudent = ${isStudent}, hasID = ${hasID}, isTeacher = ${isTeacher}`);
+        console.log("===== LOGICAL OPERATORS =====")
+        console.log(` isStudent = ${isStudent}, hasID = ${hasID}, isTeacher = ${isTeacher}`);
 
-        // AND (&&) — dono true hone chahiye
-        console.log(`isStudent && hasID → ${isStudent && hasID}`);   // true && true → true
-        console.log(`isStudent && isTeacher → ${isStudent && isTeacher}`); // true && false → false
 
-        // OR (||) — koi ek true ho
-        console.log(`isStudent || isTeacher → ${isStudent || isTeacher}`); // true || false → true
-        console.log(`isTeacher || hasID → ${isTeacher || hasID}`); // false || true → true
 
-        // NOT (!) — ulta kar dena
-        console.log(`!isStudent → ${!isStudent}`);   // !true → false
-        console.log(`!isTeacher → ${!isTeacher}`);   // !false → true
 
-        // ==========================================
-        // 5. TERNARY OPERATOR (Shortcut if-else)
-        // ==========================================
+        // AND
 
-        console.log("===== TERNARY OPERATOR =====");
+        console.log(`isStudent && hasId -> ${isStudent && hasID}`);
+        console.log(`isStudent && isTeacher -> ${isStudent && isTeacher}`);
 
+        // OR 
+        console.log(`isStudent || hasID -> ${isStudent || hasID}`);
+        
+        // NOT 
+        console.log(`!isStudent -> ${!isStudent}`);
+
+        // ternary operator 
+        console.log("===== ternary operator =====")
         let age = 18;
-        let canVote = (age >= 18) ? "✅ Yes, can vote" : "❌ No, cannot vote";
-        console.log(`Age = ${age} → ${canVote}`);
+        let canVote = (age >= 18) ? "yes can we vote" : "no can't";
+
+        console.log(`Age = ${age} -> ${canVote}`);
 
         let age2 = 16;
-        let canVote2 = (age2 >= 18) ? "✅ Yes, can vote" : "❌ No, cannot vote";
-        console.log(`Age = ${age2} → ${canVote2}`);
+        let canVote2 = (age2 >= 18) ? "yes can vote" : "can't vote";
 
-        // ==========================================
-        // 6. INCREMENT / DECREMENT
-        // ==========================================
 
-        console.log("===== INCREMENT / DECREMENT =====");
+        console.log(`age = ${age2} -> ${canVote2}`);
+
+        //  INCREMENT / DESCRIMENT
+        
 
         let count = 0;
         console.log(`count = ${count}`);
 
-        count++;  // count = count + 1
-        console.log(`count++ → ${count}`);
+        count++;
+        console.log(`count = ${count}`);
+        
 
-        count++;  // count = count + 1
-        console.log(`count++ → ${count}`);
-
-        count--;  // count = count - 1
-        console.log(`count-- → ${count}`);
-
-        // ==========================================
-        // OUTPUT ON SCREEN
-        // ==========================================
+        let conut2 = 0;
+    
+        count--;
+        console.log(`count2 = ${conut2}`);
 
         const showOutput = () => {
             let result = `
@@ -166,11 +149,9 @@
             document.getElementById("output").innerHTML = result;
         };
 
-        document.getElementById("runBtn").addEventListener("click", showOutput);
+        ocument.getElementById("runBtn").addEventListener("click", showOutput);
 
         console.log("✅ Day 2 complete!");
-
     </script>
-
 </body>
 </html>
