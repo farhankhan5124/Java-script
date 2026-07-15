@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        console.log("====ARRRAY=====");
+
+        // EMPTY ARRAY
+
+        let array = [];
+        console.log("empty arrray : ", array);
+
+        // array with number
+
+        let number = [1,2,3,4,5,6,7,8];
+        console.log(number);
+
+        // array with string
+        let fruits = ["Apple", "Banana", "mango", "orange", ];
+        console.log("ruits array: ", fruits);
+
+        // mixed array string plus number
+        let mixed = ["farhan", 20, true, "indore"];
+        console.log("mixed array;", mixed);
+
+        console.log("=====array access=====");
+        console.log("fruits[0]",fruits[0]);
+        console.log("fruits[1]",fruits[1]);
+        console.log("fruits[2]",fruits[2]);
+        console.log("fruits[3]",fruits[3]);
+
+        console.log("last fruits:", fruits[fruits.length - 1]);
+
+        // array length
+
+        console.log("======ARRRAY LENGTHV======")
+        console.log("fruits length :", fruits.length);
+        console.log("number length :", number.length);
+
+        // 4. array chenge karna value change
+
+        console.log("===== arrray change =====");
+
+        // let fruits = ["Apple", "Banana", "mango", "orange", ];
+        // // console.log("ruits array: ", fruits)
+
+        console.log("old", fruits);
+        fruits[1] = "grapes";
+        console.log("baad mai fruits:", fruits);
+
+        console.log("===== pop");
+        console.log("pehle fruits",fruits);
+        let removed = fruits.pop();
+        console.log("pop sai remove huha", removed);
+        console.log("pop() ke baad fruits", fruits);
+
+        // 7. shift() - start se item remove karna
+
+        console.log("=====shift() =====");
+        console.log("pehla fruits:", fruits);
+        let s = fruits.shift();
+        console.log("shift() se remove hua; ", s);
+        console.log("SHIFT() ke baad fruits", fruits);
+
+        // 8. unshift();
+        // console.log("===== unshift() =====")
+        // console.log("pehle fruits", fruits);
+        // fruits.unshift("apple");
+        // console.log("unshift('apple') ke baad", fruits);
+        // fruits.unshift("strawbeer")
+
+        console.log("===== UNSHIFT() =====");
+        console.log("Pehle fruits:", fruits);
+        fruits.unshift("Apple");
+        console.log("unshift('Apple') ke baad:", fruits);
+        fruits.unshift("Strawberry", "Blueberry");
+        console.log("unshift('Strawberry', 'Blueberry') ke baad:", fruits);
+
+        // for loop for array 9for loop se saare item print
+
+        console.log("===== loop with array =====");
+        console.log("Fruits list (for loop):");
+
+
+        
+        console.log("===== LOOP WITH ARRAY =====");
+
+        console.log("Fruits list (for loop):");
+        for (let i = 0; i < fruits.length; i++) {
+        console.log(`${i + 1}. ${fruits[i]}`);
+        }
+
+        // real life shophing
+        let shoppingList = ["Milk", "Bread", "Eggs", "Butter", "Cheese"];
+        for (let i = 0; i < shoppingList.length; i++) {
+        console.log(`${i + 1}. ${shoppingList[i]}`);
+        }
+
+        console.log("===== SUM OF ARRAY =====");
+        let marks = [85, 90, 78, 92, 88];
+        let sum = 0;
+
+        for (let i =0; i < marks.length; i++) {
+        sum = sum + marks[i];
+        }
+        console.log("marks;",marks);
+        console.log("total sum", sum);
+        console.log("average:", sum / marks.length);
+
+                const showOutput = () => {
+            let result = `
+                ✅ Arrays - Complete!<br><br>
+                <strong>Fruits Array:</strong> ${fruits.join(", ")}<br>
+                <strong>Length:</strong> ${fruits.length}<br><br>
+                <strong>Shopping List:</strong><br>
+                ${shoppingList.map((item, i) => `${i+1}. ${item}`).join("<br>")}<br><br>
+                <strong>Marks:</strong> ${marks.join(", ")}<br>
+                <strong>Total:</strong> ${sum}<br>
+                <strong>Average:</strong> ${sum / marks.length}<br><br>
+                <strong>Console (F12) mein saare results dekho!</strong>
+            `;
+            document.getElementById("output").innerHTML = result;
+        };
+
+        document.getElementById("runBtn").addEventListener("click", showOutput);
+
+        console.log("✅ Day 5 complete!");
+
+        
+
+
+
+        
+
+    </script>
+    
+</body>
+</html>

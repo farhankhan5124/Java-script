@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farhan - JavaScript Day 4 (Loops)</title>
+</head>
+<body>
+
+    <h1>Farhan ka JavaScript - Day 4</h1>
+    <p id="output">Yahan result dikhega.</p>
+    <button id="runBtn">Run Karo!</button>
+
+    <script>
+        // ==========================================
+        // FARHAN - DAY 4 (Loops Basic)
+        // ==========================================
+
+        // ==========================================
+        // 1. FOR LOOP
+        // ==========================================
+
+        console.log("===== FOR LOOP =====");
+
+        console.log("1 se 5 tak numbers:");
+        for (let i = 1; i <= 5; i++) {
+            console.log(i);
+        }
+
+        console.log("10 baar Namaste:");
+        for (let i = 1; i <= 10; i++) {
+            console.log(`${i}. Namaste Farhan!`);
+        }
+
+        console.log("Even numbers 2 se 10 tak:");
+        for (let i = 2; i <= 10; i += 2) {
+            console.log(i);
+        }
+
+        console.log("Odd numbers 1 se 9 tak:");
+        for (let i = 1; i <= 10; i += 2) {
+            console.log(i);
+        }
+
+        console.log("Reverse 10 se 1 tak:");
+        for (let i = 10; i >= 1; i--) {
+            console.log(i);
+        }
+
+        console.log("Break at 3:");
+        for (let i = 1; i <= 5; i++) {
+            if (i === 3) {
+                console.log("⚠️ Loop break at 3");
+                break;
+            }
+            console.log(i);
+        }
+
+        // ==========================================
+        // 2. WHILE LOOP
+        // ==========================================
+
+        console.log("===== WHILE LOOP =====");
+
+        let count = 1;
+        console.log("1 se 5 tak (while):");
+        while (count <= 5) {
+            console.log(count);
+            count++;
+        }
+
+        console.log("Table of 2 (while):");
+        let num = 1;
+        while (num <= 10) {
+            console.log(`2 × ${num} = ${2 * num}`);
+            num++;
+        }
+
+        let attempts = 0;
+        let maxAttempts = 3;
+        let userInput = "wrong";
+
+        console.log("Password attempt (while):");
+        while (userInput !== "correct" && attempts < maxAttempts) {
+            console.log(`Attempt ${attempts + 1}: Wrong password`);
+            attempts++;
+            if (attempts === maxAttempts) {
+                console.log("❌ Max attempts reached! Account locked.");
+            }
+        }
+
+        // ==========================================
+        // 3. DO-WHILE LOOP
+        // ==========================================
+
+        console.log("===== DO-WHILE LOOP =====");
+
+        let i = 1;
+        console.log("1 se 5 tak (do-while):");
+        do {
+            console.log(i);
+            i++;
+        } while (i <= 5);
+
+        let j = 10;
+        console.log("do-while with false condition:");
+        do {
+            console.log(`j = ${j} (ek baar to chala!)`);
+            j++;
+        } while (j <= 5);
+
+        let choice = 0;
+        console.log("Menu (do-while):");
+        do {
+            console.log("📋 Menu:");
+            console.log("1. Pizza");
+            console.log("2. Burger");
+            console.log("3. Pasta");
+            console.log("4. Exit");
+            choice = 4;
+            console.log(`You selected: ${choice}`);
+        } while (choice !== 4);
+        console.log("✅ Exited menu.");
+
+        // ==========================================
+        // 4. OUTPUT ON SCREEN
+        // ==========================================
+
+        const showOutput = () => {
+            let result = `
+                ✅ Loops (Basic) - Complete!<br><br>
+                <strong>For Loop:</strong><br>
+                1 se 5 tak: 1, 2, 3, 4, 5<br>
+                10 baar Namaste<br>
+                Even numbers: 2, 4, 6, 8, 10<br><br>
+                <strong>While Loop:</strong><br>
+                1 se 5 tak (while)<br>
+                Table of 2<br><br>
+                <strong>Do-While Loop:</strong><br>
+                1 se 5 tak (do-while)<br>
+                Ek baar to chala (even if condition false)<br><br>
+                <strong>Console (F12) mein saare results dekho!</strong>
+            `;
+            document.getElementById("output").innerHTML = result;
+        };
+
+        document.getElementById("runBtn").addEventListener("click", showOutput);
+
+        console.log("✅ Day 4 complete!");
+
+    </script>
+
+</body>
+</html>
