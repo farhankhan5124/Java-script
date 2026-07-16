@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farhan - JavaScript Day 6 (Functions)</title>
+</head>
+<body>
+
+    <h1>Farhan ka JavaScript - Day 6</h1>
+    <p id="output">Yahan result dikhega.</p>
+    <button id="runBtn">Run Karo!</button>
+
+    <script>
+        console.log("===== FUNCTIONS =====");
+
+        console.log("===== SIMPLE FUNCTION =====");
+
+        // funtion declaration 
+
+        function sayHello() {
+            console.log("namaste farhan");
+            console.log("wlecome to java script funtion");
+        }
+
+        // funtion call
+        console.log("funtion call 1");
+        sayHello();
+
+        console.log("funtion call :  2");
+        sayHello();
+
+        // funtion with prameter
+
+        function greetuser(name) {
+            console.log(`namaste ${name}`);
+        }
+        greetuser("farhan");
+        greetuser("rahul");
+        greetuser("priya");
+
+        // funtion with 2 para meter
+
+        function addNumber(a,b) {
+            let sum = a + b;
+            console.log(`${a} + ${b} =${sum}`);
+        }
+
+        addNumber(5,3);
+        addNumber(10,20);
+        addNumber(100,200);
+
+
+        // funtion with return:
+
+        function multiply(a,b) {
+            let sum = a * b;
+            return sum;
+        }
+
+        let product = multiply(4, 5);
+        console.log(`10 * 3 = ${product}`);
+
+        let product2 = multiply(2, 2);
+        console.log(` 2 * 2 = ${product2}`);
+
+        // return with calculation
+        function square(num) {
+            return num * num;
+        }
+
+        console.log(`5 ka square = ${square(5)}`);
+        console.log(`5 ka square = ${square(50)}`);
+        console.log(`5 ka square = ${square(12)}`);
+        console.log(`5 ka square = ${square(22)}`);
+
+        // funtion with condition
+
+        console.log("====== FUNTION WITH CONDITION ======");
+
+        function checkVote(age) {
+            if (age >= 18) {
+                return "you can vote";
+            } else {
+                return "you can't vote";
+            }
+        }
+
+        console.log(`age 12 : ${checkVote(12)}`);
+        console.log(`age 18 : ${checkVote(18)}`);
+        console.log(`age 19 : ${checkVote(19)}`);
+        console.log(`age 11 : ${checkVote(11)}`);
+
+        // funtion with multiple parameter
+
+        console.log("===== MULTIPLE PARAMETER =====");
+
+
+        function fullName(firstName, lastName) {
+            return `${firstName} ${lastName}`;
+        }
+
+        console.log(`full name: ${fullName("farhan", "khan")}`);
+        console.log(`full name: ${fullName("rahul", "sharma")}`);
+        console.log(`full name: ${fullName("ali", "khan")}`);
+
+        // calculate total price ----
+
+        function calculatePrice(price, quantity, tax) {
+            let total = price * quantity;
+            let taxAmount = total * (tax / 100);
+            let finalPrice = total + taxAmount;
+            return finalPrice;
+        }
+
+        console.log(`total price (2 item * 100, 10% tax): ${calculatePrice(100, 2, 10)}`);
+        console.log(`total price (2 item * 100, 10% tax): ${calculatePrice(200, 2, 10)}`);
+
+        // funtion inside funtion like nested 
+        console.log("===== FUNTION INSIDE FUNTION ====");
+        function calculateBhi(weight, height) {
+            function squareHeight() {
+                return height * height
+            }
+            let BMI = weight / squareHeight();
+            return BMI;
+        }
+
+        console.log(`BMi for 70 kg, 1. 75m: ${calculateBhi(70,1.75).toFixed(2)}`);
+        console.log(`BMi for 70 kg, 1. 75m: ${calculateBhi(70,1.75).toFixed(2)}`);
+
+        const showOutput = () => {
+            let result = `
+                ✅ Functions (Basic) - Complete!<br><br>
+                <strong>Simple Function:</strong><br>
+                sayHello() called 2 times<br><br>
+                <strong>Function with Parameters:</strong><br>
+                greetUser("Farhan") → Namaste Farhan!<br>
+                addNumbers(5, 3) → 5 + 3 = 8<br><br>
+                <strong>Function with Return:</strong><br>
+                multiply(4, 5) → ${multiply(4, 5)}<br>
+                square(7) → ${square(7)}<br><br>
+                <strong>Function with Condition:</strong><br>
+                checkVote(20) → ${checkVote(20)}<br>
+                checkVote(16) → ${checkVote(16)}<br><br>
+                <strong>Console (F12) mein saare results dekho!</strong>
+            `;
+            document.getElementById("output").innerHTML = result;
+        };
+
+        document.getElementById("runBtn").addEventListener("click", showOutput);
+
+        console.log("✅ Day 6 complete!");
+    </script>
+
+</body>
+</html>
