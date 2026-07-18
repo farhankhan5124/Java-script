@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farhan - JavaScript Day 8 (Hoisting + Closures)</title>
+</head>
+<body>
+
+    <h1>Farhan ka JavaScript - Day 8</h1>
+    <p id="output">Yahan result dikhega.</p>
+    <button id="runBtn">Run Karo!</button>
+
+    <script>
+        // ==========================================
+        // FARHAN - DAY 8 (Hoisting + Closures)
+        // ==========================================
+
+        console.log("===== HOISTING + CLOSURES =====");
+
+        // ==========================================
+        // 1. HOISTING - FUNCTION
+        // ==========================================
+
+        console.log("===== FUNCTION HOISTING =====");
+
+        // ---- Function call before declaration ----
+        console.log("Before declaration:", greet());  // ✅ Chalega
+
+        function greet() {
+            return "Namaste! Hoisting works!";
+        }
+
+        console.log("After declaration:", greet());
+
+        // ==========================================
+        // 2. HOISTING - var
+        // ==========================================
+
+        console.log("===== var HOISTING =====");
+
+        console.log("Before declaration:", hoistedVar);  // undefined (error nahi)
+        var hoistedVar = "Mera value hai";
+        console.log("After declaration:", hoistedVar);
+
+        // ==========================================
+        // 3. HOISTING - let/const (Temporal Dead Zone - TDZ)
+        // ==========================================
+
+        console.log("===== let/const HOISTING (TDZ) =====");
+
+        // console.log(hoistedLet);  // ❌ Error! Cannot access before initialization
+        let hoistedLet = "Mera value hai";
+        console.log("let after declaration:", hoistedLet);
+
+        // ==========================================
+        // 4. TEMPORAL DEAD ZONE (TDZ) - DETAIL
+        // ==========================================
+
+        console.log("===== TEMPORAL DEAD ZONE =====");
+
+        // ---- TDZ Example ----
+        let x = 10;
+
+        function testTDZ() {
+            // console.log(y);  // ❌ Error! TDZ starts here
+            let y = 20;         // TDZ ends here
+            console.log("Inside function:", y);
+        }
+
+        testTDZ();
+
+        // ==========================================
+        // 5. CLOSURES
+        // ==========================================
+
+        console.log("===== CLOSURES =====");
+
+        // ---- Basic Closure ----
+        function outer() {
+            let message = "Hello from outer!";
+
+            function inner() {
+                console.log(message);  // ✅ Parent variable access
+            }
+
+            return inner;
+        }
+
+        let closureFunction = outer();
+        closureFunction();  // "Hello from outer!"
+
+        // ---- Closure with Counter ----
+        function createCounter() {
+            let count = 0;
+
+            return function() {
+                count++;
+                return count;
+            };
+        }
+
+        let counter = createCounter();
+        console.log("Counter 1:", counter());  // 1
+        console.log("Counter 2:", counter());  // 2
+        console.log("Counter 3:", counter());  // 3
+
+        // ---- Another counter (independent) ----
+        let counter2 = createCounter();
+        console.log("Counter2 1:", counter2());  // 1
+        console.log("Counter2 2:", counter2());  // 2
+
+        // ---- Closure with Parameters ----
+        function multiplier(factor) {
+            return function(number) {
+                return number * factor;
+            };
+        }
+
+        let double = multiplier(2);
+        let triple = multiplier(3);
+
+        console.log("Double 5:", double(5));  // 10
+        console.log("Triple 5:", triple(5));  // 15
+
+        // ---- Real-Life: Private Variables ----
+        function createUser(name) {
+            let privateName = name;
+
+            return {
+                getName: function() {
+                    return privateName;
+                },
+                setName: function(newName) {
+                    privateName = newName;
+                }
+            };
+        }
+
+        let user = createUser("Farhan");
+        console.log("User name:", user.getName());  // Farhan
+        user.setName("Rahul");
+        console.log("User name after change:", user.getName());  // Rahul
+
+        // ==========================================
+        // 6. OUTPUT ON SCREEN
+        // ==========================================
+
+        const showOutput = () => {
+            let result = `
+                ✅ Hoisting + Closures - Complete!<br><br>
+                <strong>Function Hoisting:</strong><br>
+                Before declaration: ${greet()}<br><br>
+                <strong>var Hoisting:</strong><br>
+                Before declaration: undefined<br>
+                After declaration: ${hoistedVar}<br><br>
+                <strong>Closures:</strong><br>
+                Counter 1: ${counter()}<br>
+                Counter 2: ${counter()}<br>
+                Counter 3: ${counter()}<br><br>
+                <strong>Private Variables:</strong><br>
+                User name: ${user.getName()}<br><br>
+                <strong>Console (F12) mein saare results dekho!</strong>
+            `;
+            document.getElementById("output").innerHTML = result;
+        };
+
+        document.getElementById("runBtn").addEventListener("click", showOutput);
+
+        console.log("✅ Day 8 complete!");
+
+    </script>
+
+</body>
+</html>
