@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farhan - JavaScript Day 9 (Arrays Advanced)</title>
+</head>
+<body>
+
+    <h1>Farhan ka JavaScript - Day 9</h1>
+    <p id="output">Yahan result dikhega.</p>
+    <button id="runBtn">Run Karo!</button>
+
+    <script>
+       console.log("===== arrays advanced =====")
+       
+    //    simple array ---
+    let numbers = [1,2,3,4,5];
+    let fruits = ["apple", "banana", "mango", "orange", "kiwi"];
+    let students = [
+        {name: "farhan", marks: 85 },
+        {name: "rahul", marks: 72 },
+        {name: "priya", marks: 90 },
+        {name: "amit", marks: 58 },
+        {name: "sneha", marks: 95 }
+    ];
+
+    console.log("====== For each()====");
+    // 1.1 basic for each----
+    console.log("numbers(foreach):");
+    numbers.forEach(function(num) {
+        console.log(num)
+    });
+
+    // ---1.2 forEach with index
+    console.log("fruits with index:");
+    fruits.forEach(function(item, index) {
+        console.log(`${index + 1}. ${item}`);
+    });
+
+    // // -----1.3 for each wirth array function
+console.log("student marks (forEach)");
+students.forEach(student => {
+    console.log(`${student.name}: ${student.marks}`);
+});
+
+//  ----1.4 forEach - sum nikalna (with out reduce) ------
+    let totla = 0;
+    numbers.forEach(num => {
+        totla += num;
+    });
+    console.log("sum using forEach:", totla);
+
+    // 2. map() - har item ko change karo
+    console.log("==== map () ====");
+
+    // 2.1 basic map ----
+    let double = numbers.map(function(num) {
+        return num * 2;
+    });
+    console.log("orignal number:", numbers);
+    console.log("doubled number:", double);
+
+    // 2.2  map with arrow function ----
+    let squared = numbers.map(num => num *  num);
+    console.log("square number (map):", squared);
+
+    // 2.3 map with arrow funtion --
+    let upperFruits = fruits.map(fruit => fruit.toUpperCase());
+    console.log("upper fruits (map):", upperFruits);
+
+    // 2.4 map with objects ---
+    let studentNames = students.map(student => student.name);
+    console.log("student names (map):", studentNames);
+
+    // 2.5 map with template literal -----
+    let studentDetails = students.map(student =>
+    `${student.name} scored ${student.marks}marks`);
+
+    console.log("student details (map):", studentDetails);
+
+    // 3. filter() - specific item filter karo
+
+    console.log("==== filter ====");
+
+
+    // 3.1 ------ basic filter
+
+    let evenNumber = numbers.filter(function(num) {
+        return num % 2 === 0;
+    });
+    console.log("even number (filter(filter))", evenNumber);
+
+    // 3.2 -----filter with arrow
+    let oddNumber = numbers.filter(num => num % 2 !== 0);
+    console.log("odd number", oddNumber);
+
+    // 3.3 filter with strings ---
+    let longFruits = fruits.filter(fruit => fruit.length > 5);
+    console.log("fruits with length", longFruits);
+
+    // 3.4 filter with object
+    let passStudent = students.filter(student => student.marks >= 60);
+    console.log("top student (filter)", passStudent);
+
+    let topStudents = students.filter(student => student.marks >= 80);
+        console.log("Top students (filter):", topStudents);
+
+
+    // 3.5 filter with condition ----
+
+    let faildStudent = students.filter(student => student.marks <60);
+    console.log("failed student (filter):", faildStudent);
+
+    // 4. reduce()-- sabko jodkar ek result do
+
+    console.log("===== reduce() ====");
+
+    // ---- 4.1 Basic reduce ----
+        let sum = numbers.reduce(function(accumulator, current) {
+            return accumulator + current;
+        }, 0);
+        console.log("Sum using reduce:", sum);
+
+        // ---- 4.2 reduce with arrow ----
+        let product = numbers.reduce((acc, curr) => acc * curr, 1);
+        console.log("Product using reduce:", product);
+
+        // ---- 4.3 reduce with objects ----
+        let totalMarks = students.reduce((acc, student) => acc + student.marks, 0);
+        console.log("Total marks (reduce):", totalMarks);
+
+        let averageMarks = totalMarks / students.length;
+        console.log("Average marks:", averageMarks);
+
+        // ---- 4.4 reduce — find max ----
+        let maxMarks = students.reduce((max, student) => {
+            return student.marks > max.marks ? student : max;
+        }, students[0]);
+        console.log("Highest marks:", maxMarks);
+
+        // ---- 4.5 reduce — count items ----
+        let fruitCount = fruits.reduce((acc, fruit) => {
+            acc[fruit] = (acc[fruit] || 0) + 1;
+            return acc;
+        }, {});
+        console.log("Fruit count (reduce):", fruitCount);
+
+        // ==========================================
+        // 5. COMBINING METHODS
+        // ==========================================
+
+        console.log("===== COMBINING METHODS =====");
+
+        // ---- 5.1 filter + map ----
+        let highScorers = students
+            .filter(student => student.marks >= 80)
+            .map(student => student.name);
+        console.log("High scorers (filter + map):", highScorers);
+
+        // ---- 5.2 map + reduce ----
+        let totalWithBonus = students
+            .map(student => student.marks + 5)  // 5 bonus marks
+            .reduce((acc, marks) => acc + marks, 0);
+        console.log("Total with bonus (map + reduce):", totalWithBonus);
+
+         // 6. OUTPUT ON SCREEN
+        // ==========================================
+
+        const showOutput = () => {
+            let result = `
+                ✅ Arrays Advanced - Complete!<br><br>
+                <strong>Original Numbers:</strong> ${numbers.join(", ")}<br>
+                <strong>Doubled (map):</strong> ${doubled.join(", ")}<br>
+                <strong>Squared (map):</strong> ${squared.join(", ")}<br>
+                <strong>Even (filter):</strong> ${evenNumbers.join(", ")}<br>
+                <strong>Odd (filter):</strong> ${oddNumbers.join(", ")}<br>
+                <strong>Sum (reduce):</strong> ${sum}<br>
+                <strong>Product (reduce):</strong> ${product}<br><br>
+                <strong>Students:</strong><br>
+                ${students.map(s => `${s.name}: ${s.marks}`).join("<br>")}<br><br>
+                <strong>Passed (filter):</strong><br>
+                ${passedStudents.map(s => s.name).join(", ")}<br><br>
+                <strong>Total Marks (reduce):</strong> ${totalMarks}<br>
+                <strong>Average:</strong> ${averageMarks.toFixed(2)}<br><br>
+                <strong>Console (F12) mein saare results dekho!</strong>
+            `;
+            document.getElementById("output").innerHTML = result;
+        };
+
+        document.getElementById("runBtn").addEventListener("click", showOutput);
+
+        console.log("✅ Day 9 complete!");
+
+
+
+
+    
+    
+
+
+
+
+    
+
+    </script>
+
+</body>
+</html>
