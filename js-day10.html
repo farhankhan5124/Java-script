@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farhan - JavaScript Day 10 (Objects Basic)</title>
+</head>
+<body>
+
+    <h1>Farhan ka JavaScript - Day 10</h1>
+    <p id="output">Yahan result dikhega.</p>
+    <button id="runBtn">Run Karo!</button>
+
+    <script>
+        // Farhan - day 10 (object basic)
+
+        console.log("====== OBJECT BASIC======");
+
+
+        // 1. OBJECCT CTEATE KARNA
+
+        console.log("====== OBJECT BASIC ======");
+
+        // EMPTY OBJECT
+
+        let emptyobj = {};
+        console.log("eMPTY OBJECT :", emptyobj);
+
+
+        // object with properties ---
+        let person = {
+            name: "farhan",
+            age: 20,
+            city: "indore",
+            isStudent: true
+        };
+        console.log("persone object", person);
+
+        let car = {
+            brand: "toyota",
+            model: "fortuner",
+            year: 2024,
+            price: 4500000,
+            isAvailable: true,
+            features: ["4*4", "sunroof", "leather seats"],
+            owner: {
+                name: "farhan",
+                age: 20
+            }
+        };
+        console.log("car object: ", car);
+
+        // 2. object properties access karna
+
+        console.log("===== object acces =====");
+
+        //---- DOT NOTATION (.)
+        console.log("name (dot);", person.name); 
+        console.log("age (dot):", person.age);
+        console.log("city (dot): ", person.city);
+
+        // bracket notation ([])--
+        console.log("name (bracket ): ", person["name"]);
+        console.log("age (bracket):", person["age"]);
+        console.log("city (bracket):", person["city"]);
+
+        // access nested object -----
+        console.log("car owner name:", car.owner.name);
+        console.log("car features: ", car.features);
+        console.log("first feature:", car.features[0]);
+
+        // 3. properties add karna------
+
+        console.log("======== ADD PROPERTIES ======");
+
+        console.log("BEFORE ADDING: ", person);
+        person.email = "farhan@gmail.com";
+        person.phone = "123123123";
+        console.log("After adding: ", person);
+
+    // 4. properties update karna
+        
+        console.log("===== update properties ===");
+
+        console.log("before update:", person);
+        person.age = 21;
+        person.city = "mumbai";
+        console.log("After update: ", person);
+
+    // 5. properties delete karna
+
+    console.log("======= DELETE PROPERTIES =======");
+
+    console.log("before delete: ", person);
+    delete person.phone;
+    console.log("after delete: ", person);
+
+    // 6. DYNAMIC PROPERTIES ACCESS (VARIABLE SAI)
+
+    let key = "name";
+    console.log(`person["${key}"]:`, person[key]);
+
+    let userInput = "city";
+    console.log(`person["${userInput}"]: `, person[userInput]);
+
+
+    // 7. OBJECT WITH METHODS (FUNTION INSIDE OBJECT)
+
+
+    console.log("========= OBJECT METHODS ==========");
+    
+    let user = {
+        firstName: "FFarhan",
+        lastName: "khan",
+        age: 20,
+        fullName: function() {
+            return this.firstName + " " + this.lastName;
+        },
+        getAge: function() {
+            return this.age;
+        },
+        greet: function() {
+            return `namaste! mare name ${this.fullName()} hai`;
+        }
+
+    };
+
+    console.log("FULL NAME:", user.fullName());
+    console.log("age", user.getAge());
+    console.log("greet:", user.greet());
+
+    // 8. NESTED OBJECT ----
+
+    let college = {
+        name: "VITM indore",
+        location: "indore",
+        departments: {
+            cse: {
+                hod: "sharma",
+                student: 120,
+                labs: 5
+            },
+            mech: {
+                hod: "dr verma",
+                student: 80,
+                labs: 3
+            }
+        },
+        address: {
+            street: "main road",
+            city: "indore",
+            pincode: "452001"
+        }
+    };
+
+    console.log("college:", college);
+    console.log("cse hod: ", college.departments.cse.hod);
+    console.log("mech students:", college.departments.mech.student);
+    console.log("college city:", college.address.city);
+
+    // 9. loop with object (for... in)
+    console.log("===== LOOP WITH OBJECT =====");
+
+    console.log("Person properties (for...in):");
+    for (let key in person) {
+        console.log(`${key}: ${person[key]}`);
+    }
+
+    console.log("colleg detail (for...in):");
+    for (let key in college) {
+        console.log(`key${key}: ${college[key]}`);
+    }
+
+
+    // 10. object keys, value, entries
+
+    console.log("====== object keys, value, entries =====");
+
+    console.log("keys :", Object.keys(person));
+    console.log("values:", Object.values(person));
+    console.log("entries:", object.entries(person));
+
+     const showOutput = () => {
+            let result = `
+                ✅ Objects Basic - Complete!<br><br>
+                <strong>Person Object:</strong><br>
+                Name: ${person.name}<br>
+                Age: ${person.age}<br>
+                City: ${person.city}<br>
+                Email: ${person.email}<br><br>
+                <strong>User with Methods:</strong><br>
+                Full Name: ${user.fullName()}<br>
+                Greet: ${user.greet()}<br><br>
+                <strong>College:</strong><br>
+                Name: ${college.name}<br>
+                CSE HOD: ${college.departments.cse.hod}<br>
+                Address: ${college.address.city}<br><br>
+                <strong>Keys:</strong> ${Object.keys(person).join(", ")}<br>
+                <strong>Values:</strong> ${Object.values(person).join(", ")}<br><br>
+                <strong>Console (F12) mein saare results dekho!</strong>
+            `;
+            document.getElementById("output").innerHTML = result;
+        };
+
+        document.getElementById("runBtn").addEventListener("click", showOutput);
+
+        console.log("✅ Day 10 complete!");
+
+    </script>
+
+</body>
+</html>
