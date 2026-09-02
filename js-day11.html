@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farhan - JavaScript Day 11 (Objects Advanced)</title>
+</head>
+<body>
+
+    <h1>Farhan ka JavaScript - Day 11</h1>
+    <p id="output">Yahan result dikhega.</p>
+    <button id="runBtn">Run Karo!</button>
+
+    <script>
+        // ==========================================
+        // FARHAN - DAY 11 (Objects Advanced)
+        // ==========================================
+
+        console.log("===== OBJECTS ADVANCED =====");
+
+        // ==========================================
+        // 1. OBJECT METHODS (Functions inside object)
+        // ==========================================
+
+        console.log("===== OBJECT METHODS =====");
+
+        let user = {
+            firstName: "Farhan",
+            lastName: "Khan",
+            age: 20,
+            city: "Indore",
+            
+            // ---- Method 1: Full Name ----
+            fullName: function() {
+                return this.firstName + " " + this.lastName;
+            },
+            
+            // ---- Method 2: Get Age ----
+            getAge: function() {
+                return this.age;
+            },
+            
+            // ---- Method 3: Greet ----
+            greet: function() {
+                return `Namaste! Mera naam ${this.fullName()} hai.`;
+            },
+            
+            // ---- Method 4: Update City ----
+            updateCity: function(newCity) {
+                this.city = newCity;
+                return `City updated to ${this.city}`;
+            }
+        };
+
+        console.log("User Object:", user);
+        console.log("Full Name:", user.fullName());
+        console.log("Age:", user.getAge());
+        console.log("Greet:", user.greet());
+        console.log("Update City:", user.updateCity("Mumbai"));
+        console.log("After update:", user);
+
+        // ==========================================
+        // 2. this KEYWORD (Detailed)
+        // ==========================================
+
+        console.log("===== this KEYWORD =====");
+
+        // ---- this = current object ----
+        let car = {
+            brand: "Toyota",
+            model: "Fortuner",
+            year: 2024,
+            
+            getDetails: function() {
+                return `${this.brand} ${this.model} (${this.year})`;
+            },
+            
+            getAge: function() {
+                let currentYear = 2026;
+                return currentYear - this.year;
+            }
+        };
+
+        console.log("Car Details:", car.getDetails());
+        console.log("Car Age:", car.getAge());
+
+        // ---- this in different contexts ----
+        function testThis() {
+            console.log("Global this:", this);  // Window object
+        }
+        testThis();
+
+        // ==========================================
+        // 3. Object.keys() — Saari keys ka array
+        // ==========================================
+
+        console.log("===== Object.keys() =====");
+
+        let person = {
+            name: "Farhan",
+            age: 20,
+            city: "Indore",
+            email: "farhan@email.com"
+        };
+
+        let keys = Object.keys(person);
+        console.log("Keys:", keys);  // ["name", "age", "city", "email"]
+
+        // ---- Loop with keys ----
+        console.log("Loop with keys:");
+        keys.forEach(key => {
+            console.log(`${key}: ${person[key]}`);
+        });
+
+        // ==========================================
+        // 4. Object.values() — Saari values ka array
+        // ==========================================
+
+        console.log("===== Object.values() =====");
+
+        let values = Object.values(person);
+        console.log("Values:", values);  // ["Farhan", 20, "Indore", "farhan@email.com"]
+
+        // ==========================================
+        // 5. Object.entries() — Key-value pairs ka array
+        // ==========================================
+
+        console.log("===== Object.entries() =====");
+
+        let entries = Object.entries(person);
+        console.log("Entries:", entries);
+        // [["name", "Farhan"], ["age", 20], ["city", "Indore"], ["email", "farhan@email.com"]]
+
+        // ---- Loop with entries ----
+        console.log("Loop with entries:");
+        entries.forEach(([key, value]) => {
+            console.log(`${key}: ${value}`);
+        });
+
+        // ==========================================
+        // 6. Object.assign() — Two objects ko merge karna
+        // ==========================================
+
+        console.log("===== Object.assign() =====");
+
+        let obj1 = { name: "Farhan", age: 20 };
+        let obj2 = { city: "Indore", email: "farhan@email.com" };
+        let obj3 = { age: 25, phone: "9876543210" };  // age override
+
+        let merged = Object.assign({}, obj1, obj2, obj3);
+        console.log("Object 1:", obj1);
+        console.log("Object 2:", obj2);
+        console.log("Object 3:", obj3);
+        console.log("Merged:", merged);
+
+        // ---- Shorthand (Spread operator) ----
+        let mergedSpread = { ...obj1, ...obj2, ...obj3 };
+        console.log("Merged (Spread):", mergedSpread);
+
+        // ==========================================
+        // 7. Object.freeze() — Read-only banana
+        // ==========================================
+
+        console.log("===== Object.freeze() =====");
+
+        let frozenObj = { name: "Farhan", age: 20 };
+        Object.freeze(frozenObj);
+
+        console.log("Before change:", frozenObj);
+        frozenObj.name = "Rahul";  // ❌ Won't work
+        frozenObj.city = "Mumbai"; // ❌ Won't work (can't add)
+        delete frozenObj.age;      // ❌ Won't work (can't delete)
+        console.log("After change:", frozenObj);  // Same as before
+
+        // ---- Check if frozen ----
+        console.log("Is frozen?", Object.isFrozen(frozenObj));  // true
+
+        // ==========================================
+        // 8. Object.seal() — Add/Delete nahi kar sakte
+        // ==========================================
+
+        console.log("===== Object.seal() =====");
+
+        let sealedObj = { name: "Farhan", age: 20 };
+        Object.seal(sealedObj);
+
+        console.log("Before change:", sealedObj);
+        sealedObj.name = "Rahul";   // ✅ Allowed (existing property change)
+        sealedObj.city = "Mumbai";  // ❌ Not allowed (can't add)
+        delete sealedObj.age;       // ❌ Not allowed (can't delete)
+        console.log("After change:", sealedObj);
+
+        // ---- Check if sealed ----
+        console.log("Is sealed?", Object.isSealed(sealedObj));  // true
+
+        // ==========================================
+        // 9. Spread Operator with Objects
+        // ==========================================
+
+        console.log("===== SPREAD OPERATOR =====");
+
+        let original = { name: "Farhan", age: 20, city: "Indore" };
+        let copy = { ...original };  // Copy
+        let modified = { ...original, age: 25, email: "farhan@email.com" };
+
+        console.log("Original:", original);
+        console.log("Copy:", copy);
+        console.log("Modified:", modified);
+
+        // ==========================================
+        // 10. DESTRUCTURING (Objects)
+        // ==========================================
+
+        console.log("===== DESTRUCTURING =====");
+
+        let student = {
+            name: "Farhan",
+            age: 20,
+            city: "Indore",
+            marks: 85
+        };
+
+        // ---- Old way ----
+        let name = student.name;
+        let age = student.age;
+        console.log("Old way:", name, age);
+
+        // ---- New way (Destructuring) ----
+        let { name: studentName, age: studentAge, city: studentCity } = student;
+        console.log("Destructuring:", studentName, studentAge, studentCity);
+
+        // ---- Default values ----
+        let { marks, grade = "A" } = student;
+        console.log("Marks:", marks);
+        console.log("Grade (default):", grade);
+
+        // ==========================================
+        // 11. OUTPUT ON SCREEN
+        // ==========================================
+
+        const showOutput = () => {
+            let result = `
+                ✅ Objects Advanced - Complete!<br><br>
+                <strong>User Methods:</strong><br>
+                Full Name: ${user.fullName()}<br>
+                Greet: ${user.greet()}<br><br>
+                <strong>Object.keys():</strong><br>
+                ${Object.keys(person).join(", ")}<br><br>
+                <strong>Object.values():</strong><br>
+                ${Object.values(person).join(", ")}<br><br>
+                <strong>Object.entries():</strong><br>
+                ${Object.entries(person).map(([k, v]) => `${k}: ${v}`).join("<br>")}<br><br>
+                <strong>Object.assign():</strong><br>
+                ${JSON.stringify(merged)}<br><br>
+                <strong>Spread Operator:</strong><br>
+                ${JSON.stringify(modified)}<br><br>
+                <strong>Destructuring:</strong><br>
+                Name: ${studentName}, Age: ${studentAge}, City: ${studentCity}<br>
+                Marks: ${marks}, Grade: ${grade}<br><br>
+                <strong>Console (F12) mein saare results dekho!</strong>
+            `;
+            document.getElementById("output").innerHTML = result;
+        };
+
+        document.getElementById("runBtn").addEventListener("click", showOutput);
+
+        console.log("✅ Day 11 complete!");
+
+    </script>
+
+</body>
+</html>
